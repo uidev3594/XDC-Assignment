@@ -15,11 +15,11 @@ export class Profiles extends React.Component{
             dots: true,
           };
 
-       var slicedData = function(d){
-            d.slice(0,6);
-        }
+    //    var slicedData = function(d){
+    //         d.slice(0,6);
+    //     }
 
-        let profiles=  slicedData(data).map((item, index)=>{
+        let profiles=  data.slice(0,6).map((item, index)=>{
             return(
                      <Card key={index} cardData={item}/>
             )
