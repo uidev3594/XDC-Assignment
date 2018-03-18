@@ -24,7 +24,7 @@ body {
 }
 #profile{
   border-radius: 50%;
-  width: 50%;
+  min-width: 50%;
   min-height: 50%;
   height: auto;
   margin: auto;
@@ -47,6 +47,9 @@ body {
 .experience .row .s6{
   margin-right: 0.5rem;
 }
-.card-content{
-  padding-bottom: 0px !important;
+#card-content{
+  padding-bottom: 0px;
+}
+#card-image{
+  padding-top: 1rem;
 }
