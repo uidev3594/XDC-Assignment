@@ -1,38 +1,47 @@
-import React from 'react'
-import  'materialize-css/dist/css/materialize.css';
+import React from "react";
+import "materialize-css/dist/css/materialize.css";
+import Media from "react-media";
 
-import Slider from 'react-slick'
-import "slick-carousel/slick/slick.css"; 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { data } from '../utils/data'
-import {Card } from './card'
+import { data } from "../utils/data";
+import { Card } from "./card";
 
-export class Profiles extends React.Component{
-    render(){
+export class Profiles extends React.Component {
 
-        var settings = {
-            dots: true,
-          };
+  getSlicedData = (start, end) => {
+    return data.slice(start, end).map((item, index) => {
+      return <Card key={index} cardData={item} />;
+    });
+  };
 
-    //    var slicedData = function(d){
-    //         d.slice(0,6);
-    //     }
+  manipulateRows = () => {
+    let count = data.length / 6;
+    let countArray = new Array(count).fill(0);
 
-        let profiles=  data.slice(0,6).map((item, index)=>{
-            return(
-                     <Card key={index} cardData={item}/>
-            )
-        })
-        return(
-            <Slider {...settings}>
-                    <div className="row">
-                            {profiles} 
-                    </div>
-                    <div className="row">
-                            {profiles} 
-                    </div>
-            </Slider>
-        );
-    }
+    return countArray.map((item, index) => {
+      return (
+        <div className="row pad">
+          <Media
+            query="(max-width: 599px)"
+            render={() =>  this.getSlicedData(index * 1, index * 1 + 1)}
+           />
+           <Media
+            query="(min-width: 600px)"
+            render={() =>  this.getSlicedData(index * 6, index * 6 + 6)}
+           />
+        </div>
+      );
+    });
+  };
+
+  render() {
+   var settings = {
+      arrows: true
+    };
+
+    return <Slider {...settings}>{this.manipulateRows()}</Slider>;
+  }
 }

@@ -7,7 +7,7 @@ export class Card extends React.Component{
         return (
             <div className="col s12 m4">
                     <div>
-                        <div className="card horizontal row">
+                        <div className="card horizontal row hoverable">
                             <div className="card-image col s4" id="card-image">
                                 <img src={cardData.image} id="profile"/>
                                 <p className="role mb-0">{cardData.role}</p>

@@ -49,7 +49,36 @@ body {
 }
 #card-content{
   padding-bottom: 0px;
+  padding-right: 0px;
 }
 #card-image{
   padding-top: 1rem;
+}
+
+.slick-prev, .slick-next {
+  background: #060606 !important;;
+  z-index: 99;
+  border-radius: 50%;
+  position: relative;
+  top: -1rem;
+}
+.slick-prev{
+  left: 1rem !important;
+}
+.slick-next {
+  right: 1rem !important;
+}
+.pad{
+  padding: 10rem 5rem;
+}
+@media only screen and (max-width: 768px) {
+  .pad{
+    padding: 10rem 1rem;
+  }
+  .slick-prev{
+    left: 0.5rem !important;
+  }
+  .slick-next {
+    right: 0.5rem !important;
+  }
 }
